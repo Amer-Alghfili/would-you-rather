@@ -1,0 +1,29 @@
+.main-header {
+    background-color: #ce9219;
+    padding: 5px;
+}
+
+.main-header__brand, .main-header__links, .main-header__link {
+    display: inline-block;
+}
+
+.main-header__links {
+    width: 70%;
+    text-align: right;
+}
+
+.main-header__link {
+    margin: 8px;
+}
+
+a.active {
+    color: #ffe75e;
+}
+
+.main-header__link a:hover {
+    color: #ffe75e;
+}
+
+.main-header__user-options {
+    text-align: center;
+}

@@ -1,0 +1,163 @@
+/* global */
+.box {
+  background-color: #a8bb68;
+  color: #eee;
+  position: relative;
+  width: 30%;
+  margin: 32px auto;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 5px 5px 20px #222;
+}
+
+.button {
+  background-color: #527318;
+  color: #eee;
+  font-size: 16px;
+  margin: 16px auto;
+  padding: 8px;
+  width: 30%;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #eee;
+  font-size: 18px;
+}
+
+section {
+  margin-top: 32px;
+}
+
+select {
+  cursor: pointer;
+}
+
+label {
+  display: block;
+}
+
+/* sign in style */
+
+.sign-in__title {
+  font-size: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.sign-in__users {
+  background-color: #c9df82;
+  color: #527318;
+  width: 80%;
+  height: 30px;
+  font-size: 14px;
+}
+
+/* create question style */
+.new-question__field,
+.new-question__button {
+  display: block;
+}
+
+.new-question__title {
+  width: 80%;
+  margin: 8px auto;
+  font-size: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.new-question__field {
+  background-color: #ddd;
+  width: 95%;
+  margin: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+}
+
+/* leaderboard style */
+
+.leaderboard__user {
+  margin: 32px 0;
+}
+
+.leaderboard__user-rank {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 40%;
+}
+
+.leaderboard__user-name {
+  width: 60%;
+  margin: 8px auto;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.leaserboard__user-statistics,
+.score {
+  display: inline-block;
+  margin: 0 32px;
+  vertical-align: middle;
+}
+
+.circle {
+  background-color: #527318;
+  color: #eee;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 10% auto;
+  border-radius: 50%;
+}
+
+.leaderboard__score-result {
+  position: relative;
+  top: 30%;
+}
+
+/* home page style */
+
+.question-list__link {
+  display: block;
+  width: 40%;
+  margin: auto;
+}
+
+.box.question {
+  width: 100%;
+}
+
+.question-list__question {
+  width: 100%;
+  margin: auto;
+}
+
+.question-list {
+  text-align: center;
+}
+.question-list__options {
+  background-color: #ce9219;
+  color: #ffe75e;
+  width: 60%;
+  height: 30px;
+  font-size: 16px;
+  outline: none;
+}
+
+.question-list__question-name {
+  width: 60%;
+  margin: 8px auto;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 32px;
+}
+
+/* question answer */
