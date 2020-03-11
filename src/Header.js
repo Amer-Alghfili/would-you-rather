@@ -10,7 +10,7 @@ export default props => {
                 {props.user ? 
                     <ul className='main-header__links'>
                         <li className='main-header__link'><NavLink activeClassName="active" to="/home">Home</NavLink></li>
-                        <li className='main-header__link'><NavLink activeClassName="active" to="/new-question">New Question</NavLink></li>
+                        <li className='main-header__link'><NavLink activeClassName="active" to="/add">New Question</NavLink></li>
                         <li className='main-header__link'><NavLink activeClassName="active" to="/leaderboard">Leaderboard</NavLink></li>
                         <li className='main-header__link'>
                             <ul className="main-header__user-options">

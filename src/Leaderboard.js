@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import UserAchievement from "./UserAchievement";
 
 class Leaderboard extends Component {
@@ -15,31 +14,13 @@ class Leaderboard extends Component {
   };
 
   sortByScore = users => {
-    return Object.keys(users).sort((a, b) => {
-      if (users[a].score > users[b].score) {
-        return -1;
-      } else if (users[a].score < users[b].score) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
+    return Object.keys(users).sort((a, b) => users[b].score - users[a].score);
   };
 
   render() {
-    if (!this.props.authed) {
-      return (
-        <Redirect
-          to={{
-            pathname: "/",
-            state: { target: this.props.location.pathname }
-          }}
-        />
-      );
-    }
     const { users } = this.props;
     if (Object.keys(users).length === 0) {
-      return <h1 style={{color: 'black'}}>Loading...</h1>;
+      return <h1 style={{ color: "black" }}>Loading...</h1>;
     }
     const renderedUsers = this.assignUsersScores().map((id, index) => (
       <UserAchievement
@@ -56,8 +37,7 @@ class Leaderboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.users,
-  authed: state.authed
+  users: state.users
 });
 
 export default connect(mapStateToProps)(Leaderboard);

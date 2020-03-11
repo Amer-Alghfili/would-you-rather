@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { saveQuestion } from "./actions/questions";
 // import actions to submit the new question
 import "./styles/style.css";
@@ -14,12 +13,13 @@ class CreateQuestion extends Component {
   questionSubmittionHandler = () => {
     const { authed } = this.props;
     const { optionOneText, optionTwoText } = this.state;
-    this.props.dispatch(
-      saveQuestion({
+    this.props.saveQuestion(
+      {
         author: authed,
         optionOneText,
         optionTwoText
-      }, this.props.history.push)
+      },
+      this.props.history.push
     );
   };
 
@@ -30,16 +30,6 @@ class CreateQuestion extends Component {
     }));
   };
   render() {
-    if (!this.props.authed) {
-      return (
-        <Redirect
-          to={{
-            pathname: "/",
-            state: { target: this.props.location.pathname }
-          }}
-        />
-      );
-    }
     return (
       <section className="new-question">
         <div className="container">
@@ -70,7 +60,12 @@ class CreateQuestion extends Component {
                 onChange={this.formChangeHandler}
                 name="optionTwoText"
               />
-              <button className="button" onClick={this.questionSubmittionHandler}>Submit</button>
+              <button
+                className="button"
+                onClick={this.questionSubmittionHandler}
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>
@@ -81,4 +76,9 @@ class CreateQuestion extends Component {
 const mapStateToProps = state => ({
   authed: state.authed
 });
-export default connect(mapStateToProps)(CreateQuestion);
+
+const mapDispatchToProps = dispatch => ({
+  saveQuestion: (questionInfo, history) =>
+    dispatch(saveQuestion(questionInfo, history))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CreateQuestion);

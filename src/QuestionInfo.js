@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { saveQuestionAnswer } from "./actions/questions";
 import QuestionAnswer from "./QuestionAnswer";
 import QuestionPoll from "./QuestionPoll";
@@ -29,16 +29,6 @@ class QuestionInfo extends Component {
 
   render() {
     const { questions, users, authed, match } = this.props;
-    if (!authed) {
-      return (
-        <Redirect
-          to={{
-            pathname: "/",
-            state: { target: this.props.location.pathname }
-          }}
-        />
-      );
-    }
     if (
       Object.keys(questions).length === 0 ||
       Object.keys(users).length === 0

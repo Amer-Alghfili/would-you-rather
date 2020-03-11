@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Redirect} from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAuthedUser } from "./actions/authed";
 import wondering from "./img/wondering.svg";
@@ -7,7 +7,7 @@ import "./styles/style.css";
 
 class SignIn extends Component {
   state = {
-    selectedUser: "",
+    selectedUser: ""
   };
 
   optionChangeHandler = event => {
@@ -20,26 +20,25 @@ class SignIn extends Component {
   signInHandler = event => {
     event.preventDefault();
     let user;
-    if(!this.state.selectedUser) {
+    if (!this.state.selectedUser) {
       user = Object.keys(this.props.users)[0];
     } else {
       user = this.state.selectedUser;
     }
-    this.props.dispatch(setAuthedUser(user));
-    let targetedUrl = '/home';
-    if(this.props.location.state) {
-      targetedUrl = this.props.location.state.target;
-    }
-    this.props.history.push(targetedUrl);
+    this.props.setAuthedUser(user);
   };
-
   render() {
-    if(this.props.authedUser) {
-      return <Redirect to="/home" />
+    if (this.props.authedUser) {
+      let targetedUrl = "/home";
+
+      if (this.props.location.state) {
+        targetedUrl = this.props.location.state.target;
+      }
+      return <Redirect to={targetedUrl} />;
     }
     const { users } = this.props;
     if (Object.keys(users).length === 0) {
-      return <h1 style={{color: 'black'}}>Loading...</h1>;
+      return <h1 style={{ color: "black" }}>Loading...</h1>;
     }
     const renderedOprions = Object.keys(users).map(id => (
       <option key={id} className="sign-in__user" value={id}>
@@ -76,4 +75,8 @@ const mapStateToProps = state => ({
   users: state.users,
   authedUser: state.authed
 });
-export default connect(mapStateToProps)(SignIn);
+
+const mapDispatchToProps = dispatch => ({
+  setAuthedUser: user => dispatch(setAuthedUser(user))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
