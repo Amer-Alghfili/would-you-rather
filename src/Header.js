@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './styles/header.css';
 
-export default props => {
+export default Header (props) => {
     return (
         <header className='main-header'>
             <div className='container'>
