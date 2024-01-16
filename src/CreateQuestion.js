@@ -8,7 +8,8 @@ import asking from "./img/asking.svg";
 class CreateQuestion extends Component {
   state = {
     optionOneText: "",
-    optionTwoText: ""
+    optionTwoText: "",
+    optionThree: ""
   };
   questionSubmittionHandler = () => {
     const { authed } = this.props;
