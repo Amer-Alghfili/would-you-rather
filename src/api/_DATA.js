@@ -1,5 +1,6 @@
 let users = {
   sarahedo: {
+    fullName: "",
     id: "sarahedo",
     name: "Sarah Edo",
     avatarURL: null,
